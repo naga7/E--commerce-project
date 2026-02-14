@@ -75,15 +75,15 @@ export default function Cart() {
   // ----------------------------
   console.log(CartData);
   if (isLoading) {
-    <h2>loading.............</h2>;
+    return <h2>loading.............</h2>;
   }
   if (isError) {
-    <h2>.............</h2>;
+    return <h2>.............</h2>;
   }
 
   return (
     <>
-      {CartData?.numOfCartItems > 0 ? (
+      {CartData && CartData?.numOfCartItems > 0 ? (
         <div className="flex gap-5">
           <div className="w-3/4 mt-5">
             <div className="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">

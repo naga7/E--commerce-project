@@ -29,3 +29,43 @@ export let Registerschema = zod
     path: ["rePassword"],
     message: "invaled rePassword",
   });
+// --------------
+
+export let changpass = zod.object({
+  email: zod
+    .string()
+    .nonempty("email is required")
+    .regex(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/, "invaild mail"),
+});
+
+export let code = zod.object({
+  resetCode: zod
+    .string()
+    .nonempty("email is required")
+    .max(6, "name max 6 num"),
+});
+// ---------------------
+
+export let updatePassword = zod
+
+  .object({
+    currentPassword: zod
+      .string()
+      .nonempty("urrentPassword is required")
+      .regex(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,}$/,
+        "invaild passworrd"
+      ),
+    password: zod
+      .string()
+      .nonempty("password is required")
+      .regex(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,}$/,
+        "invaild passworrd"
+      ),
+    rePassword: zod.string().nonempty(" rePassword is required"),
+  })
+  .refine((data) => data.password === data.rePassword, {
+    path: ["rePassword"],
+    message: "invaled rePassword",
+  });

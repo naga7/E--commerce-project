@@ -18,7 +18,7 @@ export default function ProductCard({ prod }: { prod: ProductItem }) {
   return (
     <>
       <Card className="relative mx-auto max-w-sm pt-0">
-        <Link href={`productDetails/${prod._id}`}>
+        <Link href={`/productDetails/${prod._id}`}>
           <Image
             height={300}
             width={200}

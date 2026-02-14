@@ -24,14 +24,15 @@ export default function ProductImg({ images }: { images: string[] }) {
         <CarouselContent>
           {images.map((src) => {
             return (
-              <CarouselItem>
+              <CarouselItem key={src}>
                 {" "}
                 <Image
                   height={300}
                   width={400}
                   src={src}
                   alt={src}
-                  className="w-full object-fill"
+                  className="w-full object-fill w-full h-auto"
+                  priority
                 />
               </CarouselItem>
             );

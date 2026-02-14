@@ -38,7 +38,9 @@ export default function RootLayout({
           <NextAuthProvider>
             <Toaster />
             <Navbar />
-            <div className="container m-auto max-w-7xl mt-8">{children}</div>
+            <div className="container m-auto max-w-7xl mt-8 h-min-screen mb-20">
+              {children}
+            </div>
 
             <Footer />
           </NextAuthProvider>

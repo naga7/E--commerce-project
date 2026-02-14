@@ -19,7 +19,7 @@ export default function Navbar() {
   } = useQuery<CartResponse>({
     queryKey: ["get-cart"],
     queryFn: async () => {
-      const res = await fetch("api/cart");
+      const res = await fetch("/api/cart", { cache: "no-store" });
       const payload = await res.json();
       return payload;
     },
@@ -148,7 +148,7 @@ export default function Navbar() {
                     </Link>{" "}
                   </li>
                   <li className="relative my-8 md:mx-3">
-                    {(CartData?.numOfCartItems ?? 0 )>0? (
+                    {(CartData?.numOfCartItems ?? 0) > 0 ? (
                       <span className="bg-green-400 text-white p-1  rounded-full absolute -top-[20px] start-4">
                         {CartData?.numOfCartItems}
                       </span>

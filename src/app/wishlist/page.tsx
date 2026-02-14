@@ -38,7 +38,7 @@ export default function Wishlist() {
       queryclient.invalidateQueries({ queryKey: ["get-wishList"] });
     },
     onError: () => {
-      toast.success("error....");
+      toast.error("error....");
     },
   });
   // // ----------clear all items cart------------
@@ -85,7 +85,7 @@ export default function Wishlist() {
 
   return (
     <>
-      {WishListData?.count > 0 ? (
+      {WishListData && WishListData?.count > 0 ? (
         <div className="flex gap-5">
           <div className="w-full mt-5">
             <div className="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
